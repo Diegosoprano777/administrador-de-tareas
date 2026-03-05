@@ -1,0 +1,10 @@
+<div class="usuarios">
+  <div 
+    class="usuario-card"
+    *ngFor="let usuario of usuarios"
+    (click)="seleccionarUsuario(usuario)"
+  >
+    <img [src]="usuario.imagen" />
+    <span>{{ usuario.nombre }}</span>
+  </div>
+</div>

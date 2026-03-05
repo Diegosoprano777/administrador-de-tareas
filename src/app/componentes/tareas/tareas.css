@@ -1,0 +1,22 @@
+.tareas {
+  flex: 1;
+}
+
+.tareas h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: rgba(255,255,255,0.1);
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+}

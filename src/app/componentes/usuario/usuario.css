@@ -1,0 +1,27 @@
+.usuarios {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.usuario-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255,255,255,0.1);
+  padding: 15px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.usuario-card:hover {
+  background: rgba(255,255,255,0.2);
+  transform: scale(1.05);
+}
+
+.usuario-card img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}

@@ -1,0 +1,15 @@
+<div class="tareas" *ngIf="usuario">
+  <h2>{{ usuario.nombre }}</h2>
+
+  <ul>
+    <li *ngFor="let tarea of usuario.tareas">
+      {{ tarea.titulo }}
+      <span *ngIf="tarea.completada">✔</span>
+      <span *ngIf="!tarea.completada">❌</span>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="!usuario">
+  <h2>Selecciona un usuario</h2>
+</div>
