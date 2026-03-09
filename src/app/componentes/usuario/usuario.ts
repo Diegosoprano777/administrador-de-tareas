@@ -1,23 +1,25 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { USUARIOS_FALSOS } from '../../usuario-falsos';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
+interface Usuario {
+  id: number;
+  imagen: string;
+  nombre: string;
+}
 
 @Component({
   selector: 'app-usuario',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './usuario.html',
-  styleUrls: ['./usuario.css']
+  styleUrl: './usuario.css'
 })
 export class UsuarioComponent {
 
-  usuarios = USUARIOS_FALSOS;
+  @Input({ required: true }) usuario!: Usuario;
 
-  @Output() usuarioSeleccionado = new EventEmitter<any>();
+  @Output() seleccion = new EventEmitter<number>();
 
-  seleccionarUsuario(usuario: any) {
-    console.log("Usuario seleccionado:", usuario);
-    this.usuarioSeleccionado.emit(usuario); // 🔥 ESTA LÍNEA ES LA CLAVE
+  seleccionarUsuario() {
+    this.seleccion.emit(this.usuario.id);
   }
 
 }

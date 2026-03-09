@@ -1,11 +1,22 @@
 <app-encabezado></app-encabezado>
 
-<div class="contenedor">
-  <app-usuario 
-    (usuarioSeleccionado)="recibirUsuario($event)">
-  </app-usuario>
+<main class="contenedor">
 
-  <app-tareas 
-    [usuario]="usuarioActual">
-  </app-tareas>
-</div>
+  <ul class="usuarios">
+    @for (usuario of usuarios; track usuario.id) {
+      <li>
+        <app-usuario
+          [usuario]="usuario"
+          (seleccion)="seleccionarUsuario($event)">
+        </app-usuario>
+      </li>
+    }
+  </ul>
+
+  <div class="panel-tareas">
+    <app-tareas
+      [usuario]="usuarioSeleccionado">
+    </app-tareas>
+  </div>
+
+</main>

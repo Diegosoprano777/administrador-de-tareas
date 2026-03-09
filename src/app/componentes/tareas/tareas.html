@@ -1,15 +1,46 @@
 <div class="tareas" *ngIf="usuario">
-  <h2>{{ usuario.nombre }}</h2>
 
-  <ul>
-    <li *ngFor="let tarea of usuario.tareas">
-      {{ tarea.titulo }}
-      <span *ngIf="tarea.completada">✔</span>
-      <span *ngIf="!tarea.completada">❌</span>
-    </li>
-  </ul>
+  <div class="panel">
+
+    <header class="panel-header">
+      <h2>Tareas de {{ usuario.nombre }}</h2>
+      <button class="btn-agregar">Agregar Tarea Nueva</button>
+    </header>
+
+    <ul class="lista-tareas">
+
+      <li class="tarea-card" *ngFor="let tarea of usuario.tareas">
+
+        <div class="tarea-info">
+
+          <h3 class="titulo">
+            {{ tarea.titulo }}
+          </h3>
+
+          <p class="tiempo">
+            <strong>Tiempo:</strong> {{ tarea.tiempo }}
+          </p>
+
+          <p class="resumen">
+            <strong>Resumen:</strong> {{ tarea.resumen }}
+          </p>
+
+        </div>
+
+        <div class="tarea-acciones">
+          <button class="estado">
+            {{ tarea.completada ? 'Terminada' : 'Pendiente' }}
+          </button>
+        </div>
+
+      </li>
+
+    </ul>
+
+  </div>
+
 </div>
 
-<div *ngIf="!usuario">
+<div *ngIf="!usuario" class="sin-usuario">
   <h2>Selecciona un usuario</h2>
 </div>

@@ -1,22 +1,115 @@
-.tareas {
-  flex: 1;
+/* contenedor general */
+
+.tareas{
+  width: 750px;
 }
 
-.tareas h2 {
-  font-size: 32px;
-  margin-bottom: 20px;
+/* panel principal */
+
+.panel{
+  background: rgba(255,255,255,0.08);
+  padding: 25px;
+  border-radius: 15px;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-}
+/* header del panel */
 
-li {
-  background: rgba(255,255,255,0.1);
-  padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 10px;
+.panel-header{
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+/* botón agregar */
+
+.btn-agregar{
+  background: #a855f7;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-agregar:hover{
+  background: #9333ea;
+  transform: scale(1.05);
+}
+
+/* lista tareas */
+
+.lista-tareas{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* tarjeta tarea */
+
+.tarea-card{
+  background: #c4a7e7;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+/* información de la tarea */
+
+.tarea-info{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* titulo */
+
+.titulo{
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* tiempo */
+
+.tiempo{
+  margin: 0;
+  font-size: 14px;
+}
+
+/* resumen */
+
+.resumen{
+  margin: 0;
+  font-size: 14px;
+}
+
+/* botón estado */
+
+.estado{
+  background: #4c1d95;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.estado:hover{
+  background: #6d28d9;
+  transform: scale(1.05);
+}
+
+/* mensaje sin usuario */
+
+.sin-usuario{
+  color: white;
+  font-size: 18px;
 }
