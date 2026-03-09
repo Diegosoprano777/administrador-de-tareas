@@ -1,13 +1,14 @@
 {
   "name": "gestor-tareas",
   "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
-  },
+ "scripts": {
+  "ng": "ng",
+  "start": "ng serve",
+  "build": "ng build",
+  "watch": "ng build --watch --configuration development",
+  "test": "ng test",
+  "deploy": "ng build --configuration production --base-href /administrador-de-tareas/ && npx angular-cli-ghpages --dir=dist/gestor-tareas"
+},
   "prettier": {
     "printWidth": 100,
     "singleQuote": true,
