@@ -16,6 +16,9 @@ export class UsuarioComponent {
 
   @Input({ required: true }) usuario!: Usuario;
 
+  // NUEVO: saber si este usuario está seleccionado
+  @Input() seleccionado: boolean = false;
+
   @Output() seleccion = new EventEmitter<number>();
 
   seleccionarUsuario() {

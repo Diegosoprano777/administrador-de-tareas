@@ -1,46 +1,47 @@
-<div class="tareas" *ngIf="usuario">
+<section class="tareas">
 
   <div class="panel">
 
     <header class="panel-header">
-      <h2>Tareas de {{ usuario.nombre }}</h2>
-      <button class="btn-agregar">Agregar Tarea Nueva</button>
+      <h2>Tareas de {{ nombre }}</h2>
+
+      <button class="btn-agregar">
+        Agregar Tarea Nueva
+      </button>
     </header>
 
     <ul class="lista-tareas">
 
-      <li class="tarea-card" *ngFor="let tarea of usuario.tareas">
+      @for (tarea of tareasUsuarioSeleccionado; track tarea.id) {
 
-        <div class="tarea-info">
+        <li class="tarea-card">
 
-          <h3 class="titulo">
-            {{ tarea.titulo }}
-          </h3>
+          <div class="tarea-info">
 
-          <p class="tiempo">
-            <strong>Tiempo:</strong> {{ tarea.tiempo }}
-          </p>
+            <h3 class="titulo">
+              {{ tarea.titulo }}
+            </h3>
 
-          <p class="resumen">
-            <strong>Resumen:</strong> {{ tarea.resumen }}
-          </p>
+            <p class="tiempo">
+              <strong>Tiempo:</strong> {{ tarea.tiempo }}
+            </p>
 
-        </div>
+            <p class="resumen">
+              {{ tarea.resumen }}
+            </p>
 
-        <div class="tarea-acciones">
+          </div>
+
           <button class="estado">
-            {{ tarea.completada ? 'Terminada' : 'Pendiente' }}
+            Terminada
           </button>
-        </div>
 
-      </li>
+        </li>
+
+      }
 
     </ul>
 
   </div>
 
-</div>
-
-<div *ngIf="!usuario" class="sin-usuario">
-  <h2>Selecciona un usuario</h2>
-</div>
+</section>

@@ -7,6 +7,7 @@
       <li>
         <app-usuario
           [usuario]="usuario"
+          [seleccionado]="usuarioSeleccionado?.id === usuario.id"
           (seleccion)="seleccionarUsuario($event)">
         </app-usuario>
       </li>
@@ -14,9 +15,14 @@
   </ul>
 
   <div class="panel-tareas">
-    <app-tareas
-      [usuario]="usuarioSeleccionado">
-    </app-tareas>
+
+    @if (usuarioSeleccionado) {
+      <app-tareas
+        [nombre]="usuarioSeleccionado.nombre"
+        [idUsuario]="usuarioSeleccionado.id">
+      </app-tareas>
+    }
+
   </div>
 
 </main>
