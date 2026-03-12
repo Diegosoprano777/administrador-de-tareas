@@ -1,19 +1,22 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NuevaTareaComponent } from '../nueva-tarea/nueva-tarea';
 
 @Component({
   selector: 'app-tareas',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NuevaTareaComponent],
   templateUrl: './tareas.html',
   styleUrls: ['./tareas.css']
 })
 export class TareasComponent {
 
   @Input({required:true}) nombre!: string;
- @Input({required:true}) idUsuario!: number;
+  @Input({required:true}) idUsuario!: number;
 
- tareas = [
+  mostrarFormulario = false;
+
+  tareas = [
 
   // Usuario 1
   {
@@ -155,11 +158,39 @@ export class TareasComponent {
 
 ];
 
-
   get tareasUsuarioSeleccionado() {
     return this.tareas.filter(
       (tarea) => tarea.idUsuario === this.idUsuario
     );
+  }
+
+  eliminarTarea(idTarea: string) {
+    this.tareas = this.tareas.filter(
+      (tarea) => tarea.id !== idTarea
+    );
+  }
+
+  abrirFormulario() {
+    this.mostrarFormulario = true;
+  }
+
+  cerrarFormulario() {
+    this.mostrarFormulario = false;
+  }
+
+  agregarTarea(tarea: any) {
+
+    const nueva = {
+      id: 't' + (this.tareas.length + 1),
+      idUsuario: this.idUsuario,
+      titulo: tarea.titulo,
+      resumen: tarea.resumen,
+      tiempo: tarea.fecha
+    };
+
+    this.tareas.push(nueva);
+
+    this.cerrarFormulario();
   }
 
 }

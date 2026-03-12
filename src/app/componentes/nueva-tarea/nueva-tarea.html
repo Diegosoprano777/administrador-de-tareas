@@ -1,0 +1,51 @@
+<<div class="overlay" (click)="cerrar()">>
+
+  <div class="modal">
+
+    <h2>Nueva Tarea</h2>
+
+    <form (ngSubmit)="crearTarea()">
+
+      <label>Titulo</label>
+      <input
+        name="titulo"
+        [(ngModel)]="titulo"
+      >
+
+      <label>Resumen</label>
+      <textarea
+        name="resumen"
+        [(ngModel)]="resumen"
+      ></textarea>
+
+      <label>Fecha</label>
+      <input
+        type="date"
+        name="fecha"
+        [(ngModel)]="fecha"
+      >
+
+      <div class="acciones">
+
+        <button
+          type="button"
+          class="cancelar"
+          (click)="cerrar()"
+        >
+          Cancelar
+        </button>
+
+        <button
+          type="submit"
+          class="crear"
+        >
+          Crear
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

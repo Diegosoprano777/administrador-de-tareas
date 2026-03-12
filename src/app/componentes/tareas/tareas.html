@@ -5,7 +5,7 @@
     <header class="panel-header">
       <h2>Tareas de {{ nombre }}</h2>
 
-      <button class="btn-agregar">
+      <button class="btn-agregar" (click)="abrirFormulario()">
         Agregar Tarea Nueva
       </button>
     </header>
@@ -32,7 +32,10 @@
 
           </div>
 
-          <button class="estado">
+          <button
+            class="estado"
+            (click)="eliminarTarea(tarea.id)"
+          >
             Terminada
           </button>
 
@@ -45,3 +48,12 @@
   </div>
 
 </section>
+
+@if (mostrarFormulario) {
+
+  <app-nueva-tarea
+    (cancelar)="cerrarFormulario()"
+    (crear)="agregarTarea($event)">
+  </app-nueva-tarea>
+
+}
